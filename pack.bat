@@ -1,1 +1,1 @@
-call %NuGetSynchroniser% -p Microsoft.AspNetCore.OData.NetTopology -m Release
+call %NuGetSynchroniser% -p Brandless.AspNetCore.OData.NetTopology -m Release

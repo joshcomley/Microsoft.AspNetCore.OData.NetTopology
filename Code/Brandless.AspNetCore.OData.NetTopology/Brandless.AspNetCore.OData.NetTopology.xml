@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Brandless.AspNetCore.OData.NetTopology</name>
+    </assembly>
+    <members>
+        <member name="T:Brandless.AspNetCore.OData.NetTopology.Conversion.GeographyExtensions">
+            <summary>
+                Geography extensions for conversion between Microsoft.Spatial and NTS types
+            </summary>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.GeographyExtensions.ToGeographyLineString(NetTopologySuite.Geometries.Geometry)">
+            <summary>
+                Converts an NTS LineString to a Microsoft.Spatial GeogaphyLineString.
+            </summary>
+            <param name="lineString">The NTS LineString.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.GeographyExtensions.ToNtsLineString(Microsoft.Spatial.GeographyLineString)">
+            <summary>
+                Converts a Microsoft.Spatial GeographyLineString to an NTS LineString.
+            </summary>
+            <param name="lineString">The Microsoft.Spatial GeographyLineString.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.GeographyExtensions.ToGeographyPoint(NetTopologySuite.Geometries.Point)">
+            <summary>
+                Converts an NTS Point to a Microsoft.Spatial GeogaphyPoint.
+            </summary>
+            <param name="point">The NTS Point.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.GeographyExtensions.ToNtsPoint(Microsoft.Spatial.GeographyPoint)">
+            <summary>
+                Converts a Microsoft.Spatial GeographyPoint to an NTS Point.
+            </summary>
+            <param name="geographyPoint">The Microsoft.Spatial GeographyPoint.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.GeographyExtensions.ToNtsPolygon(Microsoft.Spatial.GeographyPolygon)">
+            <summary>
+                Converts a Microsoft.Spatial GeographyPolygon to a Polygon.
+            </summary>
+            <param name="geographyPolygon">The Microsoft.Spatial GeographyPolygon.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.GeographyExtensions.ToGeographyPolygon(NetTopologySuite.Geometries.Polygon)">
+            <summary>
+                Converts an NTS Polygon to a Microsoft.Spatial GeographyPolygon
+            </summary>
+            <param name="polygon"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Brandless.AspNetCore.OData.NetTopology.Conversion.LineStringWrapper">
+            <summary>
+                Performs wrapping between Microsoft.Spatial GeographyLineString and NTS LineString
+            </summary>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.LineStringWrapper.#ctor(NetTopologySuite.Geometries.LineString)">
+            <summary>
+                NTS &lt;&gt; Microsoft.Spatial LineString implicit conversion constructor.
+            </summary>
+            <param name="lineString">The NTS LineString to wrap.</param>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.LineStringWrapper.op_Implicit(Brandless.AspNetCore.OData.NetTopology.Conversion.LineStringWrapper)~Microsoft.Spatial.GeographyLineString">
+            <summary>
+                Cast LineStringWrapper to GeographyLineString
+            </summary>
+            <param name="wrapper">The LineStringWrapper.</param>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.LineStringWrapper.op_Implicit(Microsoft.Spatial.GeographyLineString)~Brandless.AspNetCore.OData.NetTopology.Conversion.LineStringWrapper">
+            <summary>
+                Cast GeographyLineString to LineStringWrapper
+            </summary>
+            <param name="geographyLineString">The GeographyLineString.</param>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.LineStringWrapper.op_Implicit(Brandless.AspNetCore.OData.NetTopology.Conversion.LineStringWrapper)~NetTopologySuite.Geometries.LineString">
+            <summary>
+                Cast LineStringWrapper to NTS LineString
+            </summary>
+            <param name="wrapper">The LineStringWrapper.</param>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.LineStringWrapper.op_Implicit(NetTopologySuite.Geometries.LineString)~Brandless.AspNetCore.OData.NetTopology.Conversion.LineStringWrapper">
+            <summary>
+                Cast LineStringWrapper to NTS LineString
+            </summary>
+            <param name="lineString">The LineStringWrapper.</param>
+        </member>
+        <member name="T:Brandless.AspNetCore.OData.NetTopology.Conversion.PointWrapper">
+            <summary>
+                Performs wrapping between Microsoft.Spatial GeographyPoint and NTS Point
+            </summary>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.PointWrapper.#ctor(NetTopologySuite.Geometries.Point)">
+            <summary>
+                NTS &lt;&gt; Microsoft.Spatial Point implicit conversion constructor.
+            </summary>
+            <param name="point">The NTS Point to wrap.</param>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.PointWrapper.op_Implicit(Brandless.AspNetCore.OData.NetTopology.Conversion.PointWrapper)~Microsoft.Spatial.GeographyPoint">
+            <summary>
+                Cast PointWrapper to GeographyPoint
+            </summary>
+            <param name="wrapper">The PointWrapper.</param>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.PointWrapper.op_Implicit(Microsoft.Spatial.GeographyPoint)~Brandless.AspNetCore.OData.NetTopology.Conversion.PointWrapper">
+            <summary>
+                Cast GeographyPoint to PointWrapper
+            </summary>
+            <param name="geographyPoint">The GeographyPoint.</param>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.PointWrapper.op_Implicit(Brandless.AspNetCore.OData.NetTopology.Conversion.PointWrapper)~NetTopologySuite.Geometries.Point">
+            <summary>
+                Cast PointWrapper to NTS Point
+            </summary>
+            <param name="wrapper">The PointWrapper.</param>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.PointWrapper.op_Implicit(NetTopologySuite.Geometries.Point)~Brandless.AspNetCore.OData.NetTopology.Conversion.PointWrapper">
+            <summary>
+                Cast NTS Point to PointWrapper
+            </summary>
+            <param name="point">The NTS Point.</param>
+        </member>
+        <member name="T:Brandless.AspNetCore.OData.NetTopology.Conversion.PolygonWrapper">
+            <summary>
+                Performs wrapping between Microsoft.Spatial GeographyPolygon and NTS Polygon
+            </summary>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.PolygonWrapper.#ctor(NetTopologySuite.Geometries.Polygon)">
+            <summary>
+                NTS &lt;&gt; Microsoft.Spatial Polygon implicit conversion constructor.
+            </summary>
+            <param name="polygon">The NTS Polygon to wrap.</param>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.PolygonWrapper.op_Implicit(Brandless.AspNetCore.OData.NetTopology.Conversion.PolygonWrapper)~Microsoft.Spatial.GeographyPolygon">
+            <summary>
+                Cast PolygonWrapper to GeographyPolygon
+            </summary>
+            <param name="wrapper">The PolygonWrapper.</param>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.PolygonWrapper.op_Implicit(Microsoft.Spatial.GeographyPolygon)~Brandless.AspNetCore.OData.NetTopology.Conversion.PolygonWrapper">
+            <summary>
+                Cast GeographyPolygon to PolygonWrapper
+            </summary>
+            <param name="geographyPolygon">The GeographyPolygon.</param>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.PolygonWrapper.op_Implicit(Brandless.AspNetCore.OData.NetTopology.Conversion.PolygonWrapper)~NetTopologySuite.Geometries.Polygon">
+            <summary>
+                Cast PolygonWrapper to NTS Polygon
+            </summary>
+            <param name="wrapper">The PolygonWrapper.</param>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Conversion.PolygonWrapper.op_Implicit(NetTopologySuite.Geometries.Polygon)~Brandless.AspNetCore.OData.NetTopology.Conversion.PolygonWrapper">
+            <summary>
+                Cast PolygonWrapper to NTS Polygon
+            </summary>
+            <param name="polygon">The PolygonWrapper.</param>
+        </member>
+        <member name="T:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions">
+            <summary>
+                Property mappings betwen OData Microsoft.Spatial types and NTS types
+            </summary>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions.UseNetTopology(Microsoft.OData.ModelBuilder.ODataModelBuilder)">
+            <summary>
+                Maps all OData GeographyPoint to an EF NTS IPoint via convention
+            </summary>
+            <typeparam name="T">The entity type.</typeparam>
+            <param name="builder">The ODataModelBuilder.</param>
+            <returns>The ODataModelBuilder.</returns>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial``1(Microsoft.OData.ModelBuilder.ODataModelBuilder,System.Linq.Expressions.Expression{System.Func{``0,Microsoft.Spatial.GeographyPoint}},System.Linq.Expressions.Expression{System.Func{``0,NetTopologySuite.Geometries.Point}})">
+            <summary>
+                Map an OData GeographyPoint to an EF NTS IPoint
+            </summary>
+            <typeparam name="T">The entity type.</typeparam>
+            <param name="builder">The ODataModelBuilder.</param>
+            <param name="odataProperty">The Microsoft.Spatial GeographyPoint lambda.</param>
+            <param name="ntsProperty">The NTS Point lambda.</param>
+            <returns>The ODataModelBuilder.</returns>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial``1(Microsoft.OData.ModelBuilder.ODataModelBuilder,System.Linq.Expressions.Expression{System.Func{``0,Microsoft.Spatial.GeographyPolygon}},System.Linq.Expressions.Expression{System.Func{``0,NetTopologySuite.Geometries.Polygon}})">
+            <summary>
+                Map an OData GeographyPolygon to an EF NTS IPolygon
+            </summary>
+            <typeparam name="T">The entity type.</typeparam>
+            <param name="builder">The ODataModelBuilder.</param>
+            <param name="odataProperty">The Microsoft.Spatial GeographyPolygon lambda.</param>
+            <param name="ntsProperty">The NTS Polygon lambda.</param>
+            <returns>The ODataModelBuilder.</returns>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial``1(Microsoft.OData.ModelBuilder.ODataModelBuilder,System.Linq.Expressions.Expression{System.Func{``0,Microsoft.Spatial.GeographyLineString}},System.Linq.Expressions.Expression{System.Func{``0,NetTopologySuite.Geometries.LineString}})">
+            <summary>
+                Map an OData GeographyLineString to an EF NTS ILineString
+            </summary>
+            <typeparam name="T">The entity type.</typeparam>
+            <param name="builder">The ODataModelBuilder.</param>
+            <param name="odataProperty">The Microsoft.Spatial GeographyLineString lambda.</param>
+            <param name="ntsProperty">The NTS LineString lambda.</param>
+            <returns>The ODataModelBuilder.</returns>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial(Microsoft.OData.ModelBuilder.ODataModelBuilder,System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)">
+            <summary>
+                Map an OData GeographyPoint to an EF NTS IPoint
+            </summary>
+            <param name="builder">The ODataModelBuilder.</param>
+            <param name="odataPropertyInfo">The Microsoft.Spatial property.</param>
+            <param name="ntsPropertyInfo">The NTS property.</param>
+            <returns>The ODataModelBuilder.</returns>
+        </member>
+        <member name="T:Brandless.AspNetCore.OData.NetTopology.Mapping.GeographyMapping">
+            <summary>
+                Property mappings betwen OData Microsoft.Spatial types and NTS types
+            </summary>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Mapping.GeographyMapping.MapPoint(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)">
+            <summary>
+                Map an OData GeographyPoint to an EF NTS IPoint
+            </summary>
+            <param name="odataProperty"></param>
+            <param name="ntsPropertyInfo"></param>
+        </member>
+        <member name="T:Brandless.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions">
+            <summary>
+            ODataBuilder extensions
+            </summary>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions.AddODataNetTopology(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Use OData route with default route name and route prefix.
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions.AddNetTopology(Microsoft.OData.IContainerBuilder)">
+            <summary>
+            Adds NetTopology dependencies to the container builder for OData
+            </summary>
+            <param name="containerBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Brandless.AspNetCore.OData.NetTopology.Visitors.ExpressionHelper">
+            <summary>
+            The base class for all expression binders.
+            </summary>
+        </member>
+    </members>
+</doc>
+
+</doc>
