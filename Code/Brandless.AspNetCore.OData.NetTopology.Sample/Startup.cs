@@ -73,6 +73,7 @@ namespace Brandless.AspNetCore.OData.NetTopology.Sample
             var odataBuilder = new ODataConventionModelBuilder();
             odataBuilder.EntitySet<Student>("Students");
             odataBuilder.EntitySet<School>("Schools");
+            odataBuilder.EntitySet<School2>("Schools2");
             odataBuilder.UseNetTopology();
             return odataBuilder.GetEdmModel();
         }

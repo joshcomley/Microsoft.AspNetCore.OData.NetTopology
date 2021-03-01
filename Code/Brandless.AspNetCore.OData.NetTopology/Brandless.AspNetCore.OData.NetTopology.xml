@@ -4,6 +4,22 @@
         <name>Brandless.AspNetCore.OData.NetTopology</name>
     </assembly>
     <members>
+        <member name="T:Brandless.AspNetCore.OData.NetTopology.Attributes.MappedGeographyAttribute">
+            <summary>
+            Mapping of a geography property
+            </summary>
+        </member>
+        <member name="P:Brandless.AspNetCore.OData.NetTopology.Attributes.MappedGeographyAttribute.MappedToPropertyName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.Attributes.MappedGeographyAttribute.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="mappedToPropertyName"></param>
+        </member>
         <member name="T:Brandless.AspNetCore.OData.NetTopology.Conversion.GeographyExtensions">
             <summary>
                 Geography extensions for conversion between Microsoft.Spatial and NTS types
@@ -165,7 +181,6 @@
             <summary>
                 Maps all OData GeographyPoint to an EF NTS IPoint via convention
             </summary>
-            <typeparam name="T">The entity type.</typeparam>
             <param name="builder">The ODataModelBuilder.</param>
             <returns>The ODataModelBuilder.</returns>
         </member>
@@ -187,9 +202,9 @@
             <param name="builder">The ODataModelBuilder.</param>
             <param name="odataProperty">The Microsoft.Spatial GeographyPolygon lambda.</param>
             <param name="ntsProperty">The NTS Polygon lambda.</param>
-            <returns>The ODataModelBuilder.</returns>
+            <returns>turns>The ODataModelBuilder.</returns>
         </member>
-        <member name="M:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial``1(Microsoft.OData.ModelBuilder.ODataModelBuilder,System.Linq.Expressions.Expression{System.Func{``0,Microsoft.Spatial.GeographyLineString}},System.Linq.Expressions.Expression{System.Func{``0,NetTopologySuite.Geometries.LineString}})">
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial``1(Microsoft.AspNet.OData.Builder.ODataModelBuilder,System.Linq.Expressions.Expression{System.Func{``0,Microsoft.Spatial.GeographyLineString}},System.Linq.Expressions.Expression{System.Func{``0,NetTopologySuite.Geometries.LineString}})">
             <summary>
                 Map an OData GeographyLineString to an EF NTS ILineString
             </summary>
@@ -199,13 +214,14 @@
             <param name="ntsProperty">The NTS LineString lambda.</param>
             <returns>The ODataModelBuilder.</returns>
         </member>
-        <member name="M:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial(Microsoft.OData.ModelBuilder.ODataModelBuilder,System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)">
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial(Microsoft.AspNet.OData.Builder.ODataModelBuilder,System.Reflection.PropertyInfo,System.Reflection.PropertyInfo,System.Type)">
             <summary>
                 Map an OData GeographyPoint to an EF NTS IPoint
             </summary>
             <param name="builder">The ODataModelBuilder.</param>
             <param name="odataPropertyInfo">The Microsoft.Spatial property.</param>
             <param name="ntsPropertyInfo">The NTS property.</param>
+            <param name="clrType">The CLR type for the entity set.</param>
             <returns>The ODataModelBuilder.</returns>
         </member>
         <member name="T:Brandless.AspNetCore.OData.NetTopology.Mapping.GeographyMapping">
@@ -219,6 +235,24 @@
             </summary>
             <param name="odataProperty"></param>
             <param name="ntsPropertyInfo"></param>
+        </member>
+        <member name="T:Brandless.AspNetCore.OData.NetTopology.NetTopologyFilterBinder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.NetTopologyFilterBinder.#ctor(System.IServiceProvider)">
+            <summary>
+            
+            </summary>
+            <param name="requestContainer"></param>
+        </member>
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.NetTopologyFilterBinder.BindSingleValueFunctionCallNode(Microsoft.OData.UriParser.SingleValueFunctionCallNode)">
+            <summary>
+            
+            </summary>
+            <param name="single"></param>
+            <returns></returns>
         </member>
         <member name="T:Brandless.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions">
             <summary>
@@ -245,6 +279,4 @@
             </summary>
         </member>
     </members>
-</doc>
-
 </doc>

@@ -9,6 +9,7 @@ using NetTopologySuite.Geometries;
 
 namespace Brandless.AspNetCore.OData.NetTopology.Sample.Models
 {
+    public class School2:School{}
     public class School
     {
         public Guid SchoolId { get; set; }

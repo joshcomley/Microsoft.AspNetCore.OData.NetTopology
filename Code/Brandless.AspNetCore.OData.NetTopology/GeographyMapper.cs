@@ -31,7 +31,6 @@ namespace Brandless.AspNetCore.OData.NetTopology
         /// <summary>
         ///     Maps all OData GeographyPoint to an EF NTS IPoint via convention
         /// </summary>
-        /// <typeparam name="T">The entity type.</typeparam>
         /// <param name="builder">The ODataModelBuilder.</param>
         /// <returns>The ODataModelBuilder.</returns>
         public static ODataModelBuilder UseNetTopology(this ODataModelBuilder builder)
@@ -59,7 +58,7 @@ namespace Brandless.AspNetCore.OData.NetTopology
                             var mapped = properties[mappedName];
                             if (pair.Item2.IsAssignableFrom(mapped.PropertyType))
                             {
-                                MapSpatial(builder, mapped, property.Value);
+                                MapSpatial(builder, mapped, property.Value, set.ClrType);
                                 continue;
                             }
                         }
@@ -72,7 +71,7 @@ namespace Brandless.AspNetCore.OData.NetTopology
                             {
                                 if (pair.Item2.IsAssignableFrom(mappedProperty.PropertyType))
                                 {
-                                    MapSpatial(builder, mappedProperty, property.Value);
+                                    MapSpatial(builder, mappedProperty, property.Value, set.ClrType);
                                     continue;
                                 }
                             }
@@ -80,7 +79,7 @@ namespace Brandless.AspNetCore.OData.NetTopology
                             {
                                 if (pair.Item2.IsAssignableFrom(property.Value.PropertyType))
                                 {
-                                    MapSpatial(builder, property.Value, mappedProperty);
+                                    MapSpatial(builder, property.Value, mappedProperty, set.ClrType);
                                     continue;
                                 }
                             }
@@ -107,7 +106,7 @@ namespace Brandless.AspNetCore.OData.NetTopology
         {
             var odataPropertyInfo = PropertySelectorVisitor.GetSelectedProperty(odataProperty);
             var ntsPropertyInfo = PropertySelectorVisitor.GetSelectedProperty(ntsProperty);
-            return builder.MapSpatial(odataPropertyInfo, ntsPropertyInfo);
+            return builder.MapSpatial(odataPropertyInfo, ntsPropertyInfo, typeof(T));
         }
 
         /// <summary>
@@ -126,7 +125,7 @@ namespace Brandless.AspNetCore.OData.NetTopology
         {
             var odataPropertyInfo = PropertySelectorVisitor.GetSelectedProperty(odataProperty);
             var ntsPropertyInfo = PropertySelectorVisitor.GetSelectedProperty(ntsProperty);
-            return builder.MapSpatial(odataPropertyInfo, ntsPropertyInfo);
+            return builder.MapSpatial(odataPropertyInfo, ntsPropertyInfo, typeof(T));
         }
 
         /// <summary>
@@ -145,7 +144,7 @@ namespace Brandless.AspNetCore.OData.NetTopology
         {
             var odataPropertyInfo = PropertySelectorVisitor.GetSelectedProperty(odataProperty);
             var ntsPropertyInfo = PropertySelectorVisitor.GetSelectedProperty(ntsProperty);
-            return builder.MapSpatial(odataPropertyInfo, ntsPropertyInfo);
+            return builder.MapSpatial(odataPropertyInfo, ntsPropertyInfo, typeof(T));
         }
 
         /// <summary>
@@ -154,11 +153,13 @@ namespace Brandless.AspNetCore.OData.NetTopology
         /// <param name="builder">The ODataModelBuilder.</param>
         /// <param name="odataPropertyInfo">The Microsoft.Spatial property.</param>
         /// <param name="ntsPropertyInfo">The NTS property.</param>
+        /// <param name="clrType">The CLR type for the entity set.</param>
         /// <returns>The ODataModelBuilder.</returns>
         public static ODataModelBuilder MapSpatial(
             this ODataModelBuilder builder,
             PropertyInfo odataPropertyInfo,
-            PropertyInfo ntsPropertyInfo)
+            PropertyInfo ntsPropertyInfo,
+            Type clrType)
         {
             GeographyMapping.Instance.MapPoint(odataPropertyInfo, ntsPropertyInfo);
             if (odataPropertyInfo.DeclaringType == null)
@@ -175,7 +176,7 @@ namespace Brandless.AspNetCore.OData.NetTopology
                 ? ntsPropertyInfo.DeclaringType
                 : odataPropertyInfo.DeclaringType;
 
-            var configuration = builder.StructuralTypes.First(t => t.ClrType == declaringType);
+            var configuration = builder.StructuralTypes.First(t => t.ClrType == clrType);
             var primitivePropertyConfiguration = configuration.AddProperty(odataPropertyInfo);
             primitivePropertyConfiguration.Name = ntsPropertyInfo.Name;
             var param = Expression.Parameter(ntsPropertyInfo.DeclaringType);

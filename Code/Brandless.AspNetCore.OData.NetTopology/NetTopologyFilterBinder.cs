@@ -17,6 +17,9 @@ using Microsoft.Spatial;
 
 namespace Brandless.AspNetCore.OData.NetTopology
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class NetTopologyFilterBinder : FilterBinder
     {
         private const string GeoDistanceFunctionName = "geo.distance";
@@ -28,6 +31,10 @@ namespace Brandless.AspNetCore.OData.NetTopology
         private static readonly Expression TrueConstant = Expression.Constant(true);
         private ODataQuerySettings _querySettings;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="requestContainer"></param>
         public NetTopologyFilterBinder(IServiceProvider requestContainer) : base(requestContainer)
         {
         }
@@ -43,6 +50,11 @@ namespace Brandless.AspNetCore.OData.NetTopology
             return _querySettings;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="single"></param>
+        /// <returns></returns>
         public override Expression BindSingleValueFunctionCallNode(SingleValueFunctionCallNode single)
         {
             switch (single.Name)
