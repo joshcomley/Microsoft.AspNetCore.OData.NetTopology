@@ -202,9 +202,9 @@
             <param name="builder">The ODataModelBuilder.</param>
             <param name="odataProperty">The Microsoft.Spatial GeographyPolygon lambda.</param>
             <param name="ntsProperty">The NTS Polygon lambda.</param>
-            <returns>turns>The ODataModelBuilder.</returns>
+            <returns>The ODataModelBuilder.</returns>
         </member>
-        <member name="M:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial``1(Microsoft.AspNet.OData.Builder.ODataModelBuilder,System.Linq.Expressions.Expression{System.Func{``0,Microsoft.Spatial.GeographyLineString}},System.Linq.Expressions.Expression{System.Func{``0,NetTopologySuite.Geometries.LineString}})">
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial``1(Microsoft.OData.ModelBuilder.ODataModelBuilder,System.Linq.Expressions.Expression{System.Func{``0,Microsoft.Spatial.GeographyLineString}},System.Linq.Expressions.Expression{System.Func{``0,NetTopologySuite.Geometries.LineString}})">
             <summary>
                 Map an OData GeographyLineString to an EF NTS ILineString
             </summary>
@@ -214,7 +214,7 @@
             <param name="ntsProperty">The NTS LineString lambda.</param>
             <returns>The ODataModelBuilder.</returns>
         </member>
-        <member name="M:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial(Microsoft.AspNet.OData.Builder.ODataModelBuilder,System.Reflection.PropertyInfo,System.Reflection.PropertyInfo,System.Type)">
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial(Microsoft.OData.ModelBuilder.ODataModelBuilder,System.Reflection.PropertyInfo,System.Reflection.PropertyInfo,System.Type)">
             <summary>
                 Map an OData GeographyPoint to an EF NTS IPoint
             </summary>
