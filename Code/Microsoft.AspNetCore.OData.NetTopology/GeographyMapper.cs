@@ -2,9 +2,13 @@
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using Microsoft.AspNet.OData.Builder;
 using Microsoft.AspNetCore.OData.NetTopology.Attributes;
 using Microsoft.AspNetCore.OData.NetTopology.Mapping;
+#if NETNEXT
+using Microsoft.OData.ModelBuilder;
+#else
+using Microsoft.AspNet.OData.Builder;
+#endif
 using Microsoft.Spatial;
 using NetTopologySuite.Geometries;
 

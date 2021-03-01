@@ -1,6 +1,10 @@
 ﻿using System.Linq;
 using System.Linq.Expressions;
+#if NETNEXT
+using Microsoft.AspNetCore.OData.Query.Expressions;
+#else
 using Microsoft.AspNet.OData.Query.Expressions;
+#endif
 
 namespace Microsoft.AspNetCore.OData.NetTopology.Visitors
 {

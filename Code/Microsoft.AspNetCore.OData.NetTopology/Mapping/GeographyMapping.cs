@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+#if NETNEXT
+using Microsoft.AspNetCore.OData;
+#else
 using Microsoft.AspNet.OData;
+#endif
 using Microsoft.AspNetCore.OData.NetTopology.Extensions;
 
 namespace Microsoft.AspNetCore.OData.NetTopology.Mapping

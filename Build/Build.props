@@ -1,7 +1,7 @@
 ﻿<Project>
   <Import Project="..\version.xml" />
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netcoreapp2.1;netcoreapp2.2;netcoreapp3.1;net5.0</TargetFrameworks>
     <PackageTags>Microsoft.AspNetCore.OData.NetTopology</PackageTags>
     <Product>Microsoft.AspNetCore.OData.NetTopology</Product>
     <SignAssembly>True</SignAssembly>

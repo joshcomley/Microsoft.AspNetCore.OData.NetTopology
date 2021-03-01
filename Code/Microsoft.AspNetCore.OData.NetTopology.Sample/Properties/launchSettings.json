@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "odata/students?$expand=School&filter=br",
+      "launchUrl": "odata/schools?$filter=geo.distance(Location,geography%27SRID=4326;POINT%20(12.345%207.890)%27)%20gt%201000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

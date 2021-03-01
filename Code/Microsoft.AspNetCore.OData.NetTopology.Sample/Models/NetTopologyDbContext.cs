@@ -13,24 +13,27 @@ namespace Microsoft.AspNetCore.OData.NetTopology.Sample.Models
     {
         public DynamicModelCacheKeyFactory()
         {
-
         }
+
         public object Create(DbContext context)
         {
             //if (context is SqlContext dynamicContext)
             //{
             //    return (context.GetType(), dynamicContext._roleCategory);
             //}
-            return ((NetTopologyDbContext)context).Id.ToString();
+            return ((NetTopologyDbContext) context).Id.ToString();
         }
     }
+
     public class NetTopologyDbContext : DbContext
     {
         public string Filter = null;
-        public NetTopologyDbContext(DbContextOptions<NetTopologyDbContext> options, IServiceProvider serviceProvider) : base(options)
+
+        public NetTopologyDbContext(DbContextOptions<NetTopologyDbContext> options, IServiceProvider serviceProvider) :
+            base(options)
         {
             Database.Migrate();
-            //            EnsureSchools();
+            EnsureSchools();
             //this.Accessor = serviceProvider.GetService<IHttpContextAccessor>();
             //if (Accessor != null)
             //{
@@ -52,7 +55,6 @@ namespace Microsoft.AspNetCore.OData.NetTopology.Sample.Models
                 {
                     Filter = null;
                 }
-
             }
         }
 
@@ -78,7 +80,7 @@ namespace Microsoft.AspNetCore.OData.NetTopology.Sample.Models
                 school.Name = "Bromsgrove";
                 school.State = "Worcestershire";
                 school.City = "Bromsgrove";
-                school.Location = new Point(-2.0679985, 52.3293925);
+                school.Location = new Point(-2.0679985, 52.3293925) {SRID = 4326};
                 school.Line = GetLine(
                     new Coordinate(0.3207012, 51.2107298),
                     new Coordinate(0.0020977, 51.6491037),
@@ -110,8 +112,8 @@ namespace Microsoft.AspNetCore.OData.NetTopology.Sample.Models
                     new Coordinate(-2.6750650281250046, 53.92945423580718),
                     new Coordinate(-2.3235025281250046, 53.94238931142695),
                     new Coordinate(-1.8840494031250046, 54.27729562668008)
-                    );
-                school.Location = new Point(20.3576398, 52.6245802);
+                );
+                school.Location = new Point(20.3576398, 52.6245802) {SRID = 4326};
                 school.Polygon = GetPolygon(
                     new Coordinate(-2.5652017468750046, 54.25162959694112),
                     new Coordinate(-2.6750650281250046, 53.92945423580718),
@@ -126,26 +128,32 @@ namespace Microsoft.AspNetCore.OData.NetTopology.Sample.Models
 
         private LineString GetLine(params Coordinate[] coordinates)
         {
-            var lineString = new LineString(new CoordinateArraySequence(coordinates), _geomFactory);
+            var lineString = new LineString(new CoordinateArraySequence(coordinates), _geomFactory) {SRID = 4326};
             return lineString;
         }
+
         private Polygon GetPolygon(params Coordinate[] coordinates)
         {
             var list = coordinates.ToList();
             list.Add(coordinates[0]);
             var polygon = new Polygon(new LinearRing(
-                list.ToArray()), _geomFactory);
+                list.ToArray()) {SRID = 4326}, _geomFactory) {SRID = 4326};
             return polygon;
         }
+
         private void EnsureSchool(string schoolId, Action<School> action)
         {
             var school =
                 Schools.SingleOrDefault(_ => _.SchoolId == new Guid(schoolId));
             if (school == null)
             {
-                school = new School();
+                school = new School()
+                {
+                    SchoolId = new Guid(schoolId)
+                };
                 Add(school);
             }
+
             action(school);
             SaveChanges();
         }

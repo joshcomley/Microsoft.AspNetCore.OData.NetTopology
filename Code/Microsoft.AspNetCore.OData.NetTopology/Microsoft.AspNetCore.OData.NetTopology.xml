@@ -161,7 +161,7 @@
                 Property mappings betwen OData Microsoft.Spatial types and NTS types
             </summary>
         </member>
-        <member name="M:Microsoft.AspNetCore.OData.NetTopology.GeographyMappingExtensions.UseNetTopology(Microsoft.AspNet.OData.Builder.ODataModelBuilder)">
+        <member name="M:Microsoft.AspNetCore.OData.NetTopology.GeographyMappingExtensions.UseNetTopology(Microsoft.OData.ModelBuilder.ODataModelBuilder)">
             <summary>
                 Maps all OData GeographyPoint to an EF NTS IPoint via convention
             </summary>
@@ -169,7 +169,7 @@
             <param name="builder">The ODataModelBuilder.</param>
             <returns>The ODataModelBuilder.</returns>
         </member>
-        <member name="M:Microsoft.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial``1(Microsoft.AspNet.OData.Builder.ODataModelBuilder,System.Linq.Expressions.Expression{System.Func{``0,Microsoft.Spatial.GeographyPoint}},System.Linq.Expressions.Expression{System.Func{``0,NetTopologySuite.Geometries.Point}})">
+        <member name="M:Microsoft.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial``1(Microsoft.OData.ModelBuilder.ODataModelBuilder,System.Linq.Expressions.Expression{System.Func{``0,Microsoft.Spatial.GeographyPoint}},System.Linq.Expressions.Expression{System.Func{``0,NetTopologySuite.Geometries.Point}})">
             <summary>
                 Map an OData GeographyPoint to an EF NTS IPoint
             </summary>
@@ -179,7 +179,7 @@
             <param name="ntsProperty">The NTS Point lambda.</param>
             <returns>The ODataModelBuilder.</returns>
         </member>
-        <member name="M:Microsoft.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial``1(Microsoft.AspNet.OData.Builder.ODataModelBuilder,System.Linq.Expressions.Expression{System.Func{``0,Microsoft.Spatial.GeographyPolygon}},System.Linq.Expressions.Expression{System.Func{``0,NetTopologySuite.Geometries.Polygon}})">
+        <member name="M:Microsoft.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial``1(Microsoft.OData.ModelBuilder.ODataModelBuilder,System.Linq.Expressions.Expression{System.Func{``0,Microsoft.Spatial.GeographyPolygon}},System.Linq.Expressions.Expression{System.Func{``0,NetTopologySuite.Geometries.Polygon}})">
             <summary>
                 Map an OData GeographyPolygon to an EF NTS IPolygon
             </summary>
@@ -189,7 +189,7 @@
             <param name="ntsProperty">The NTS Polygon lambda.</param>
             <returns>The ODataModelBuilder.</returns>
         </member>
-        <member name="M:Microsoft.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial``1(Microsoft.AspNet.OData.Builder.ODataModelBuilder,System.Linq.Expressions.Expression{System.Func{``0,Microsoft.Spatial.GeographyLineString}},System.Linq.Expressions.Expression{System.Func{``0,NetTopologySuite.Geometries.LineString}})">
+        <member name="M:Microsoft.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial``1(Microsoft.OData.ModelBuilder.ODataModelBuilder,System.Linq.Expressions.Expression{System.Func{``0,Microsoft.Spatial.GeographyLineString}},System.Linq.Expressions.Expression{System.Func{``0,NetTopologySuite.Geometries.LineString}})">
             <summary>
                 Map an OData GeographyLineString to an EF NTS ILineString
             </summary>
@@ -199,7 +199,7 @@
             <param name="ntsProperty">The NTS LineString lambda.</param>
             <returns>The ODataModelBuilder.</returns>
         </member>
-        <member name="M:Microsoft.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial(Microsoft.AspNet.OData.Builder.ODataModelBuilder,System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)">
+        <member name="M:Microsoft.AspNetCore.OData.NetTopology.GeographyMappingExtensions.MapSpatial(Microsoft.OData.ModelBuilder.ODataModelBuilder,System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)">
             <summary>
                 Map an OData GeographyPoint to an EF NTS IPoint
             </summary>
@@ -225,7 +225,7 @@
             ODataBuilder extensions
             </summary>
         </member>
-        <member name="M:Microsoft.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions.AddODataNetTopologySuite(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Microsoft.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions.AddODataNetTopology(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Use OData route with default route name and route prefix.
             </summary>
@@ -238,68 +238,6 @@
             </summary>
             <param name="containerBuilder"></param>
             <returns></returns>
-        </member>
-        <member name="M:Microsoft.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions.MapODataServiceRouteWithNetTopology(Microsoft.AspNetCore.Routing.IRouteBuilder,System.String,System.String,System.Action{Microsoft.OData.IContainerBuilder})">
-            <summary>
-            Maps the specified OData route and the OData route attributes.
-            </summary>
-            <param name="builder">The <see cref="T:Microsoft.AspNetCore.Routing.IRouteBuilder"/> to add the route to.</param>
-            <param name="routeName">The name of the route to map.</param>
-            <param name="routePrefix">The prefix to add to the OData route's path template.</param>
-            <param name="configureAction">The configuring action to add the services to the root container.</param>
-            <returns>The added <see cref="T:Microsoft.AspNet.OData.Routing.ODataRoute"/>.</returns>
-        </member>
-        <member name="M:Microsoft.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions.MapODataServiceRouteWithNetTopology(Microsoft.AspNetCore.Routing.IRouteBuilder,System.String,System.String,Microsoft.OData.Edm.IEdmModel)">
-            <summary>
-            Maps the specified OData route and the OData route attributes.
-            </summary>
-            <param name="builder">The <see cref="T:Microsoft.AspNetCore.Routing.IRouteBuilder"/> to add the route to.</param>
-            <param name="routeName">The name of the route to map.</param>
-            <param name="routePrefix">The prefix to add to the OData route's path template.</param>
-            <param name="model">The EDM model to use for parsing OData paths.</param>
-            <returns>The added <see cref="T:Microsoft.AspNet.OData.Routing.ODataRoute"/>.</returns>
-        </member>
-        <member name="M:Microsoft.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions.MapODataServiceRouteWithNetTopology(Microsoft.AspNetCore.Routing.IRouteBuilder,System.String,System.String,Microsoft.OData.Edm.IEdmModel,Microsoft.AspNet.OData.Batch.ODataBatchHandler)">
-            <summary>
-            Maps the specified OData route and the OData route attributes. When the <paramref name="batchHandler"/> is
-            non-<c>null</c>, it will create a '$batch' endpoint to handle the batch requests.
-            </summary>
-            <param name="builder">The <see cref="T:Microsoft.AspNetCore.Routing.IRouteBuilder"/> to add the route to.</param>
-            <param name="routeName">The name of the route to map.</param>
-            <param name="routePrefix">The prefix to add to the OData route's path template.</param>
-            <param name="model">The EDM model to use for parsing OData paths.</param>
-            <param name="batchHandler">The <see cref="T:Microsoft.AspNet.OData.Batch.ODataBatchHandler"/>.</param>
-            <returns>The added <see cref="T:Microsoft.AspNet.OData.Routing.ODataRoute"/>.</returns>
-        </member>
-        <member name="M:Microsoft.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions.MapODataServiceRouteWithNetTopology(Microsoft.AspNetCore.Routing.IRouteBuilder,System.String,System.String,Microsoft.OData.Edm.IEdmModel,Microsoft.AspNet.OData.Routing.IODataPathHandler,System.Collections.Generic.IEnumerable{Microsoft.AspNet.OData.Routing.Conventions.IODataRoutingConvention})">
-            <summary>
-            Maps the specified OData route.
-            </summary>
-            <param name="builder">The <see cref="T:Microsoft.AspNetCore.Routing.IRouteBuilder"/> to add the route to.</param>
-            <param name="routeName">The name of the route to map.</param>
-            <param name="routePrefix">The prefix to add to the OData route's path template.</param>
-            <param name="model">The EDM model to use for parsing OData paths.</param>
-            <param name="pathHandler">The <see cref="T:Microsoft.AspNet.OData.Routing.IODataPathHandler"/> to use for parsing the OData path.</param>
-            <param name="routingConventions">
-            The OData routing conventions to use for controller and action selection.
-            </param>
-            <returns>The added <see cref="T:Microsoft.AspNet.OData.Routing.ODataRoute"/>.</returns>
-        </member>
-        <member name="M:Microsoft.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions.MapODataServiceRouteWithNetTopology(Microsoft.AspNetCore.Routing.IRouteBuilder,System.String,System.String,Microsoft.OData.Edm.IEdmModel,Microsoft.AspNet.OData.Routing.IODataPathHandler,System.Collections.Generic.IEnumerable{Microsoft.AspNet.OData.Routing.Conventions.IODataRoutingConvention},Microsoft.AspNet.OData.Batch.ODataBatchHandler)">
-            <summary>
-            Maps the specified OData route. When the <paramref name="batchHandler"/> is non-<c>null</c>, it will
-            create a '$batch' endpoint to handle the batch requests.
-            </summary>
-            <param name="builder">The <see cref="T:Microsoft.AspNetCore.Routing.IRouteBuilder"/> to add the route to.</param>
-            <param name="routeName">The name of the route to map.</param>
-            <param name="routePrefix">The prefix to add to the OData route's path template.</param>
-            <param name="model">The EDM model to use for parsing OData paths.</param>
-            <param name="pathHandler">The <see cref="T:Microsoft.AspNet.OData.Routing.IODataPathHandler" /> to use for parsing the OData path.</param>
-            <param name="routingConventions">
-            The OData routing conventions to use for controller and action selection.
-            </param>
-            <param name="batchHandler">The <see cref="T:Microsoft.AspNet.OData.Batch.ODataBatchHandler"/>.</param>
-            <returns>The added <see cref="T:Microsoft.AspNet.OData.Routing.ODataRoute"/>.</returns>
         </member>
         <member name="T:Microsoft.AspNetCore.OData.NetTopology.Visitors.ExpressionHelper">
             <summary>
