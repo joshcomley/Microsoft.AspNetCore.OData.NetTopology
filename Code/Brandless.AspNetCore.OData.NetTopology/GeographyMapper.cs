@@ -15,7 +15,7 @@ using Microsoft.AspNet.OData.Builder;
 namespace Brandless.AspNetCore.OData.NetTopology
 {
     /// <summary>
-    ///     Property mappings betwen OData Microsoft.Spatial types and NTS types
+    ///     Property mappings between OData Microsoft.Spatial types and NTS types
     /// </summary>
     public static class GeographyMappingExtensions
     {

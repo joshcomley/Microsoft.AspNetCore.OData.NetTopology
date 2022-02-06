@@ -1,9 +1,10 @@
 ﻿<Project>
   <Import Project="..\version.xml" />
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netcoreapp2.1;netcoreapp3.1;net5.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
     <PackageTags>Brandless.AspNetCore.OData.NetTopology</PackageTags>
     <Product>Brandless.AspNetCore.OData.NetTopology</Product>
+    <LangVersion>latest</LangVersion>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)Key.snk</AssemblyOriginatorKeyFile>
     <PublicSign Condition="'$(OS)' != 'Windows_NT'">True</PublicSign>

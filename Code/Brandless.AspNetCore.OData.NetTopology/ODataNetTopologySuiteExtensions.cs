@@ -6,6 +6,7 @@ using Microsoft.OData;
 using Microsoft.AspNet.OData.Query.Expressions;
 #endif
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using ServiceLifetime = Microsoft.OData.ServiceLifetime;
 
 namespace Brandless.AspNetCore.OData.NetTopology
@@ -16,16 +17,17 @@ namespace Brandless.AspNetCore.OData.NetTopology
     public static class ODataNetTopologySuiteExtensions
     {
         /// <summary>
-        /// Use OData route with default route name and route prefix.
+        /// Adds NetTopology dependencies to the container builder for OData
         /// </summary>
-        /// <param name="services"></param>
+        /// <param name="serviceCollection"></param>
         /// <returns></returns>
-        public static IServiceCollection AddODataNetTopology(this IServiceCollection services)
+        public static IServiceCollection AddNetTopology(this IServiceCollection serviceCollection)
         {
-            services.AddScoped<FilterBinder>(p => new NetTopologyFilterBinder(p));
-            return services;
+            serviceCollection.AddScoped<IFilterBinder, NetTopologyFilterBinder>();
+            // serviceCollection.Replace(new ServiceDescriptor(typeof()))
+            return serviceCollection;
         }
-
+        
         /// <summary>
         /// Adds NetTopology dependencies to the container builder for OData
         /// </summary>
@@ -33,7 +35,7 @@ namespace Brandless.AspNetCore.OData.NetTopology
         /// <returns></returns>
         public static IContainerBuilder AddNetTopology(this IContainerBuilder containerBuilder)
         {
-            containerBuilder.AddService<FilterBinder, NetTopologyFilterBinder>(ServiceLifetime.Transient);
+            containerBuilder.AddService<IFilterBinder, NetTopologyFilterBinder>(ServiceLifetime.Transient);
             return containerBuilder;
         }
     }

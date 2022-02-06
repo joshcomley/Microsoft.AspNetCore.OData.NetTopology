@@ -25,18 +25,25 @@ namespace Brandless.AspNetCore.OData.NetTopology.Sample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddOData(opt =>
+            services
+                .AddControllers()
+                .AddOData(opt =>
             {
                 opt
-                    .AddModel("odata", GetEdmModel(), _ => _.AddNetTopology())
-                    .Count().Filter().Expand().Select().OrderBy().SetMaxTop(5);
+                    .AddRouteComponents("odata", GetEdmModel(), _ => _.AddNetTopology())
+                    .Count()
+                    .Filter()
+                    .Expand()
+                    .Select()
+                    .OrderBy()
+                    .SetMaxTop(5);
             });
             services.AddMvc(_ => _.EnableEndpointRouting = false);
             var connection = @"Server=.;Database=WashingtonSchools;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<NetTopologyDbContext>(options => options.UseSqlServer(connection,
                 _ => _.UseNetTopologySuite()));
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddODataNetTopology();
+            services.AddNetTopology();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

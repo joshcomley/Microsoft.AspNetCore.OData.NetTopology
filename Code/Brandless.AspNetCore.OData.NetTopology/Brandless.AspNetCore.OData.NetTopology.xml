@@ -174,7 +174,7 @@
         </member>
         <member name="T:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions">
             <summary>
-                Property mappings betwen OData Microsoft.Spatial types and NTS types
+                Property mappings between OData Microsoft.Spatial types and NTS types
             </summary>
         </member>
         <member name="M:Brandless.AspNetCore.OData.NetTopology.GeographyMappingExtensions.UseNetTopology(Microsoft.OData.ModelBuilder.ODataModelBuilder)">
@@ -241,13 +241,7 @@
             
             </summary>
         </member>
-        <member name="M:Brandless.AspNetCore.OData.NetTopology.NetTopologyFilterBinder.#ctor(System.IServiceProvider)">
-            <summary>
-            
-            </summary>
-            <param name="requestContainer"></param>
-        </member>
-        <member name="M:Brandless.AspNetCore.OData.NetTopology.NetTopologyFilterBinder.BindSingleValueFunctionCallNode(Microsoft.OData.UriParser.SingleValueFunctionCallNode)">
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.NetTopologyFilterBinder.BindSingleValueFunctionCallNode(Microsoft.OData.UriParser.SingleValueFunctionCallNode,Microsoft.AspNetCore.OData.Query.Expressions.QueryBinderContext)">
             <summary>
             
             </summary>
@@ -259,11 +253,11 @@
             ODataBuilder extensions
             </summary>
         </member>
-        <member name="M:Brandless.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions.AddODataNetTopology(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Brandless.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions.AddNetTopology(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
-            Use OData route with default route name and route prefix.
+            Adds NetTopology dependencies to the container builder for OData
             </summary>
-            <param name="services"></param>
+            <param name="serviceCollection"></param>
             <returns></returns>
         </member>
         <member name="M:Brandless.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions.AddNetTopology(Microsoft.OData.IContainerBuilder)">
