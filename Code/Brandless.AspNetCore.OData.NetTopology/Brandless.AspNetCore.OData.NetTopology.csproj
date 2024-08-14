@@ -13,9 +13,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OData" Version="8.2.5" />
     <PackageReference Include="Microsoft.AspNetCore.Routing" Version="2.2.2" />
-    <PackageReference Include="Microsoft.Spatial" Version="8.0.0" />
-    <PackageReference Include="Microsoft.OData.Core" Version="8.0.0" />
-    <PackageReference Include="Microsoft.OData.Edm" Version="8.0.0" />
     <PackageReference Include="NetTopologySuite" Version="2.5.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net5.0' OR '$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net8.0'">
