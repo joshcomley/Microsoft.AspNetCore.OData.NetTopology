@@ -260,13 +260,6 @@
             <param name="serviceCollection"></param>
             <returns></returns>
         </member>
-        <member name="M:Brandless.AspNetCore.OData.NetTopology.ODataNetTopologySuiteExtensions.AddNetTopology(Microsoft.OData.IContainerBuilder)">
-            <summary>
-            Adds NetTopology dependencies to the container builder for OData
-            </summary>
-            <param name="containerBuilder"></param>
-            <returns></returns>
-        </member>
         <member name="T:Brandless.AspNetCore.OData.NetTopology.Visitors.ExpressionHelper">
             <summary>
             The base class for all expression binders.

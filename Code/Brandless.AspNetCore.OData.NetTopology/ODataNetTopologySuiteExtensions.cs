@@ -28,15 +28,15 @@ namespace Brandless.AspNetCore.OData.NetTopology
             return serviceCollection;
         }
         
-        /// <summary>
-        /// Adds NetTopology dependencies to the container builder for OData
-        /// </summary>
-        /// <param name="containerBuilder"></param>
-        /// <returns></returns>
-        public static IContainerBuilder AddNetTopology(this IContainerBuilder containerBuilder)
-        {
-            containerBuilder.AddService<IFilterBinder, NetTopologyFilterBinder>(ServiceLifetime.Transient);
-            return containerBuilder;
-        }
+        // /// <summary>
+        // /// Adds NetTopology dependencies to the container builder for OData
+        // /// </summary>
+        // /// <param name="containerBuilder"></param>
+        // /// <returns></returns>
+        // public static IContainerBuilder AddNetTopology(this IContainerBuilder containerBuilder)
+        // {
+        //     containerBuilder.AddService<IFilterBinder, NetTopologyFilterBinder>(ServiceLifetime.Transient);
+        //     return containerBuilder;
+        // }
     }
 }

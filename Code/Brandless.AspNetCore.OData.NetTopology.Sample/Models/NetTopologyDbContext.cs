@@ -22,6 +22,11 @@ namespace Brandless.AspNetCore.OData.NetTopology.Sample.Models
             //}
             return ((NetTopologyDbContext) context).Id.ToString();
         }
+
+        public object Create(DbContext context, bool designTime)
+        {
+            return ((NetTopologyDbContext) context).Id.ToString();
+        }
     }
 
     public class NetTopologyDbContext : DbContext
